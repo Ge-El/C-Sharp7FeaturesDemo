@@ -73,7 +73,7 @@ namespace CSharp7FeaturesDemo
         /// Writes out a a array of hexdecimal numbers.
         /// </summary>
         [Available]
-        static void BinaryLiteralsOld()
+        static void WriteOutBinaryNumbersOld()
         {
             int[] numbers = { 1, 2, 4, 8, 16, 32 };
 
@@ -90,7 +90,7 @@ namespace CSharp7FeaturesDemo
         /// Uses C# 7 new binary litterals.
         /// </remarks>
         [Available]
-        static void BinaryLiteralsNew()
+        static void WriteOutBinaryNumbersNew()
         {
             int[] numbers = { 0b1, 0b10, 0b100, 0b1000, 0b10000, 0b100000 };
 
@@ -107,7 +107,7 @@ namespace CSharp7FeaturesDemo
         /// Uses C# 7 new binary litterals and literal improvments.
         /// </remarks>
         [Available]
-        static void BinaryLiteralsNewWithDigitSeperator()
+        static void WriteOutBinaryNumbersNewDigitSeperator()
         {
             int[] numbers = { 0b1, 0b10, 0b100, 0b1_000, 0b10_000, 0b100_000 };
 
@@ -125,7 +125,7 @@ namespace CSharp7FeaturesDemo
         /// Writes out the count and sum of the <c>Numbers</c> field
         /// </summary>
         [Available]
-        static void TuplesOld()
+        static void WriteOutCountAndSumOld()
         {
             var result = Tally(Numbers);
 
@@ -153,7 +153,7 @@ namespace CSharp7FeaturesDemo
         /// Uses c# 7 new Tuple features
         /// </remarks>
         [Available]
-        static void TuplesNew()
+        static void WriteOutCountAndSumNew()
         {
             var result = TallyNew(Numbers);
 
@@ -182,7 +182,7 @@ namespace CSharp7FeaturesDemo
         /// Uses c# 7 new feature deconstruction
         /// </remarks>
         [Available]
-        static void TuplesNewDeconstruction()
+        static void WriteOutCountAndSumWithDeconstruction()
         {
             (var count, var sum) = TallyNew(Numbers);
 
@@ -198,7 +198,7 @@ namespace CSharp7FeaturesDemo
         /// Uses c# 7 new feature local functions
         /// </remarks>
         [Available]
-        static void TuplesNewLocalFunction()
+        static void WriteOutCountAndSumWithLocalFunctions()
         {
             (var count, var sum) = TallyNewLocalFunction(Numbers);
 
@@ -277,14 +277,14 @@ namespace CSharp7FeaturesDemo
         }
         #endregion
 
+        #region Pattern Matching
         /// <summary>
         /// Checks if a object is null and and it and writes out the object if it is not null and is not an int.
         /// </summary>
-        #region Pattern Matching
         [Available]
-        private static void OldPatternMatching()
+        private static void WriteOutIntOld()
         {
-            var obj = new object();
+            Object obj = 1_000; 
 
             if (obj == null) return;
             if (!(obj is int)) return;
@@ -299,9 +299,10 @@ namespace CSharp7FeaturesDemo
         /// Uses C# 7 new feature pattern matching. 
         /// </remarks>
         [Available]
-        private static void NewPatternMatching()
+        private static void WriteOutIntNew()
         {
-            var obj = new object();
+            object obj = 100_000;
+            
             if (obj is null) Console.WriteLine("obj is null"); // Constant pattern
             if (!(obj is int i)) return; // Type pattern
 
@@ -345,7 +346,7 @@ namespace CSharp7FeaturesDemo
         /// Writes out a comment depening what type of object it is and values of fields.
         /// </summary>
         [Available]
-        private static void SwitchStatmentWithPatternMatchingOld()
+        private static void WriteOutCommentAboutPersonOld()
         {
             CommentPersonOld(_teacher);
             CommentPersonOld(_goodStudent);
@@ -359,7 +360,7 @@ namespace CSharp7FeaturesDemo
         /// Uses C# 7 new feature pattern matching. 
         /// </remarks>
         [Available]
-        private static void SwitchStatmentWithPatternMatchingNew()
+        private static void WriteOutCommentAboutPersonNew()
         {
             CommentPersonNew(_teacher);
             CommentPersonNew(_goodStudent);
