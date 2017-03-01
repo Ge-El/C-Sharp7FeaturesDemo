@@ -68,7 +68,10 @@ namespace CSharp7FeaturesDemo
         }
         #endregion
 
-        #region Binary Literals
+        #region Binary Literals / Literal improvements
+        /// <summary>
+        /// Writes out a a array of hexdecimal numbers.
+        /// </summary>
         [Available]
         static void BinaryLiteralsOld()
         {
@@ -80,6 +83,12 @@ namespace CSharp7FeaturesDemo
             }
         }
 
+        /// <summary>
+        /// Writes out a array of hexdeximal numbers.
+        /// </summary>
+        /// <remarks>
+        /// Uses C# 7 new binary litterals.
+        /// </remarks>
         [Available]
         static void BinaryLiteralsNew()
         {
@@ -91,6 +100,12 @@ namespace CSharp7FeaturesDemo
             }
         }
 
+        /// <summary>
+        /// Writes out a array of hexdeximal numbers.
+        /// </summary>
+        /// <remarks>
+        /// Uses C# 7 new binary litterals and literal improvments.
+        /// </remarks>
         [Available]
         static void BinaryLiteralsNewWithDigitSeperator()
         {
@@ -103,9 +118,12 @@ namespace CSharp7FeaturesDemo
         }
         #endregion
 
-        #region Tuples / Deconstruction / Local Functions
+        #region Tuples
         static readonly int[] Numbers = { 0b1, 0b10, 0b100, 0b1_000, 0b10_000, 0b100_000 };
 
+        /// <summary>
+        /// Writes out the count and sum of the <c>Numbers</c> field
+        /// </summary>
         [Available]
         static void TuplesOld()
         {
@@ -128,6 +146,12 @@ namespace CSharp7FeaturesDemo
             return new Tuple<int, int>(count, sum);
         }
 
+        /// <summary>
+        /// Writes out the count and sum of the <c>Numbers</c> field
+        /// </summary>
+        /// <remarks>
+        /// Uses c# 7 new Tuple features
+        /// </remarks>
         [Available]
         static void TuplesNew()
         {
@@ -148,15 +172,31 @@ namespace CSharp7FeaturesDemo
 
             return result;
         }
+        #endregion
 
+        #region Deconstruction
+        /// <summary>
+        /// Writes out the count and sum of the <c>Numbers</c> field
+        /// </summary>
+        /// <remarks>
+        /// Uses c# 7 new feature deconstruction
+        /// </remarks>
         [Available]
         static void TuplesNewDeconstruction()
         {
-             (var count, var sum) = TallyNew(Numbers);
+            (var count, var sum) = TallyNew(Numbers);
 
             Console.WriteLine($" Count:{count}. result:{sum}.");
         }
+        #endregion
 
+        #region Local Functions 
+        /// <summary>
+        /// Writes out the count and sum of the <c>Numbers</c> field
+        /// </summary>
+        /// <remarks>
+        /// Uses c# 7 new feature local functions
+        /// </remarks>
         [Available]
         static void TuplesNewLocalFunction()
         {
@@ -181,12 +221,11 @@ namespace CSharp7FeaturesDemo
             }
             return result;
         }
-
         #endregion
 
         #region Out Variables
         /// <summary>
-        /// Tries to parse a <c>Guid</c> and print out result
+        /// Tries to parse a <c>Guid</c> and prints out result
         /// </summary>
         ///<remarks>
         /// Uses predeclared out variables 
@@ -224,16 +263,13 @@ namespace CSharp7FeaturesDemo
         /// <remarks>
         /// Uses C# 7 feature out variables declared in the parameterlist and wildcard.
         /// </remarks>
-        [Available]
         private static void PrintPoint()
         {
             // GetPoints(out var x, out *); // I only care about x
 
             // Console.WriteLine($"X: {x}");
-
         }
 
-        [Available]
         private static void GetPoints(out int x, out int y)
         {
             x = 1;
@@ -241,6 +277,9 @@ namespace CSharp7FeaturesDemo
         }
         #endregion
 
+        /// <summary>
+        /// Checks if a object is null and and it and writes out the object if it is not null and is not an int.
+        /// </summary>
         #region Pattern Matching
         [Available]
         private static void OldPatternMatching()
@@ -248,11 +287,17 @@ namespace CSharp7FeaturesDemo
             var obj = new object();
 
             if (obj == null) return;
-            if (obj is int) return;
+            if (!(obj is int)) return;
 
             Console.WriteLine($"'*'{obj}");
         }
 
+        /// <summary>
+        /// Checks if a object is null and and it and writes out the object if it is not null and is not an int.
+        /// </summary>
+        /// <remarks>
+        /// Uses C# 7 new feature pattern matching. 
+        /// </remarks>
         [Available]
         private static void NewPatternMatching()
         {
@@ -296,15 +341,23 @@ namespace CSharp7FeaturesDemo
             GradePointAverage = 2.3m
         };
 
+        /// <summary>
+        /// Writes out a comment depening what type of object it is and values of fields.
+        /// </summary>
         [Available]
         private static void SwitchStatmentWithPatternMatchingOld()
         {
             CommentPersonOld(_teacher);
             CommentPersonOld(_goodStudent);
             CommentPersonOld(_badStudent);
-       
         }
 
+        /// <summary>
+        /// Writes out a comment depening what type of object it is and values of fields.
+        /// </summary>
+        /// <remarks>
+        /// Uses C# 7 new feature pattern matching. 
+        /// </remarks>
         [Available]
         private static void SwitchStatmentWithPatternMatchingNew()
         {
