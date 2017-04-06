@@ -16,7 +16,7 @@ To run the application for the first time, follow these steps.
 3. Right click on the soulution file in soulution explorer.
 4. press "Resore packages"
 
-## Running the project
+## Running The Application
 1. Open a command prompt or a powershell command window.
 2. Navigate to the app root folder
 3. Run the following command to run the project:
